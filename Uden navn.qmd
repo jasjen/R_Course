@@ -35,6 +35,7 @@ post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
 ##About me 
+
 1. Jasmin Emma Rekly Jensen 
 
 2. Department of Biochemistry and Molecular Biology 
@@ -80,3 +81,34 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 ```
 
 See @fig-glykemi-1 above for a cool plot!
+
+
+
+## Plotting two discrete variables 
+```{r}
+ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) + 
+  geom_bar()
+```
+```{r}
+ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) + 
+  geom_bar(position = position_dodge())
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
