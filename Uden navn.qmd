@@ -1,7 +1,7 @@
 ---
 
 title: "Reproducible documents"
-author: "JasminJensen"
+author: "Jasmin Jensen"
 format: html
 ---
 
@@ -27,39 +27,47 @@ You can add options to executable code like this
 
 The `echo: false` option disables the printing of code (only output is displayed).
 
-
-
 ```{r setup}
-
+#| message: false
+#| warning: false
 library(tidyverse)
 post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
-```
-```
 ```
 
 ##About me 
 1. Jasmin Emma Rekly Jensen 
+
 2. Department of Biochemistry and Molecular Biology 
 
-**Hi**, i like to *have a bear* 
+**Hi**, i like to *drink a beer* 
 
-##Simple code 
+## Simple code 
 ```{r}
 3*3
 ```
 
-##Testing for Git 
+## Testing for Git 
 Hola hola hoæa 
 
-##Importing a CSV file 
+## Importing a CSV file 
 download.file(
   url = "https://zenodo.org/records/4989220/files/Eliasson_data2.csv?download=1",
   destfile = here::here("data/post-meal-insulin.csv")
 )
 
-##Showing the data
+## Showing the data
 ```{r}
 post_meal_data
 glimpse(post_meal_data)
+```
+
+
+
+##ggplot 
+```{r}
+#| fig-cap: "Distribution of BMI."
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x = BMI)) + 
+  geom_histogram()
 ```
 
