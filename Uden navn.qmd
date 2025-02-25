@@ -202,3 +202,18 @@ post_meal_data |>
   select(id, BMI, Length, Weight, Age) |>
   rename(Height = Length)
 ```
+
+## Filtering data 
+```{r}
+small_post_meal_data |> 
+  filter(glykemi == 1)
+
+small_post_meal_data |>
+  filter(BMI >= 25)
+
+small_post_meal_data |>
+  filter(Group == "CTR")
+
+small_post_meal_data |>
+  filter(Group == "CTR", BMI >= 25)
+```
