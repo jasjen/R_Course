@@ -32,9 +32,10 @@ The `echo: false` option disables the printing of code (only output is displayed
 #| warning: false
 library(tidyverse)
 post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
 ```
 
-##About me 
+## About me 
 
 1. Jasmin Emma Rekly Jensen 
 
@@ -64,7 +65,7 @@ glimpse(post_meal_data)
 
 
 
-##ggplot 
+## ggplot 
 ```{r}
 #| fig-cap: "Distribution of BMI."
 #| label: fig-bmi-histo
@@ -81,8 +82,6 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 ```
 
 See @fig-glykemi-1 above for a cool plot!
-
-
 
 ## Plotting two discrete variables 
 ```{r}
@@ -134,4 +133,52 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_smooth()
 ```
 
+
+
+
+## Setting up Github
+```{r}
+usethis::gh_token_help()
+```
+```{r}
+usethis::create_github_token()
+```
+```{r}
+gitcreds::gitcreds_set()
+```
+
+usethis::use_github()
+
+
+## Selecting specific coloumns in a dataset 
+```{r}
+select(post_meal_data, Age)
+
+select(post_meal_data, Age, BMI, Weight)
+
+select(post_meal_data, -Group)
+```
+
+
+## Select helpers 
+```{r}
+select(post_meal_data, starts_with("PG"))
+select(post_meal_data, ends_with("DXA"))
+
+# All columns containing the number "0"
+select(post_meal_data, contains("0"))
+```
+
+
+## Renaming coloumns 
+```{r}
+small_post_meal_data |>
+  rename(auc_glucose = auc_pg)
+
+small_post_meal_data |>
+  rename(
+    auc_glucose = auc_pg,
+    auc_insulin = auc_ins
+  )
+```
 
