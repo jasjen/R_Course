@@ -146,18 +146,6 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
 
 
 ## Setting up Github
-```{r}
-usethis::gh_token_help()
-```
-```{r}
-usethis::create_github_token()
-```
-```{r}
-gitcreds::gitcreds_set()
-```
-
-usethis::use_github()
-
 
 ## Selecting specific coloumns in a dataset 
 ```{r}
@@ -214,19 +202,3 @@ post_meal_data |>
   select(id, BMI, Length, Weight, Age) |>
   rename(Height = Length)
 ```
-
-## Filtering data 
-```{r}
-small_post_meal_data |> 
-  filter(glykemi == 1)
-
-small_post_meal_data |>
-  filter(BMI >= 25)
-
-small_post_meal_data |>
-  filter(Group == "CTR")
-
-small_post_meal_data |>
-  filter(Group == "CTR", BMI >= 25)
-```
-
