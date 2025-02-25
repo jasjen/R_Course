@@ -96,7 +96,7 @@ ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) +
 
 
 
-"" Side by side plots 
+## Side by side plots 
 ```{r}
 ggplot(post_meal_data, aes(x = BMI)) + 
   geom_histogram()
