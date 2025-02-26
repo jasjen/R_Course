@@ -50,6 +50,14 @@ tidied_post_meal_data <- tidier_post_meal_data |>
   )
 ```
 
+
+## Git 
+```{r}
+install.packages("usethis")
+usethis::gh_token_help()
+
+```
+
 ## About me 
 
 1. Jasmin Emma Rekly Jensen 
@@ -313,3 +321,21 @@ post_meal_data |>
   geom_point() +
   scale_colour_viridis_c(option = "inferno")
 ```
+## Calculating summary statistics 
+```{r}
+tidied_post_meal_data |>
+  summarise(
+    max_bmi = max(BMI),
+    min_bmi = min(BMI))
+```
+## Summarise with group by 
+```{r}
+tidied_post_meal_data |>
+  group_by(Group) |>
+  summarise(
+    mean_age = mean(Age),
+    mean_bmi = mean(BMI)
+  ) |>
+  ungroup()
+```
+
